@@ -15,6 +15,31 @@ module.exports = function(grunt) {
     globalConfig: globalConfig,
     pkg: grunt.file.readJSON('package.json'),
 
+    babel: {
+        options: {
+            "sourceMap": true
+        },
+        dist: {
+            files: [{
+                "expand": true,
+                "cwd": "src/js",
+                "src": ["**/*.jsx"],
+                "dest": "src/js-compiled/",
+                "ext": "-compiled.js"
+            }]
+        }
+    },
+    uglify: {
+        all_src : {
+            options : {
+              sourceMap : true,
+              sourceMapName : 'src/build/sourceMap.map'
+            },
+            src : 'src/js-compiled/**/*-compiled.js',
+            dest : 'src/build/all.min.js'
+        }
+    },
+
     watch: {
       sass: {
         files: '<%= globalConfig.dev %>/stylesheets/**/**/*.scss',
@@ -94,23 +119,6 @@ module.exports = function(grunt) {
       }
     },
 
-    uglify: {
-      options: {
-        banner: "/* <%= pkg.title || pkg.name %> - <%= grunt.template.today(\"mm-dd-yyyy\") %> - Copyright <%= grunt.template.today(\"yyyy\") %>; */ ",
-        compress: {
-          drop_console: true
-        }
-      },
-      build_main: {
-        src: '<%= globalConfig.dev %>/scripts/scripts.js',
-        dest: '<%= globalConfig.dist %>/assets/scripts/scripts.js'
-      },
-      build_plugins: {
-        src: '<%= globalConfig.dev %>/scripts/plugins/*.js',
-        dest: '<%= globalConfig.dist %>/assets/scripts/plugins.js'
-      }
-    },
-
     imagemin: {
       build: {
         options: { optimizationLevel: 3 },
@@ -144,6 +152,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-replace');
 
+  grunt.loadNpmTasks('grunt-babel');
 
   // Build DIST folder
   grunt.registerTask('build', [
@@ -160,10 +169,8 @@ module.exports = function(grunt) {
     'clean:build'
   ]);
 
-  // grunt
-  grunt.registerTask('default', [
-    'watch'
-  ]);
+  grunt.registerTask('default', ['babel', 'uglify']);
+
 
   // starts local server http://localhost:9001/src/index.html
   grunt.registerTask('server', [
