@@ -1,0 +1,95 @@
+// _variables.scss
+
+// ==============================================
+// LAYOUT
+// ==============================================
+$gutter: 1rem;
+$max-width: 1200px;
+
+// ==============================================
+// COLORS
+// ==============================================
+$color-white:          #FFFFFF;
+$color-black:          #000000;
+$color-orange:         #EE5038;
+$color-orange-dark:    #D83621;
+$color-gray:           #DCDBDA;
+$color-gray-medium:    #808184;
+$color-gray-dark:      #4C4C4C;
+$color-gray-light:     #DEDEDE;
+$color-green:          #069F59;
+$color-blue:           #1955b9;
+
+$color-primary:        $color-orange;
+
+
+$border-color:         $color-gray-light;
+
+// ==============================================
+// TEXT COLORS
+// ==============================================
+$text-color:           $color-gray-medium;
+
+// ==============================================
+// BACKGROUND COLORS
+// ==============================================
+$color-body: #fff;
+
+// ==============================================
+// BORDER COLORS
+// ==============================================
+$color-border: #fff;
+
+// ==============================================
+// ICONS
+// ==============================================
+$icon-primary:         $color-orange;
+$icon-primary-hover:   $color-orange-dark;
+
+// ==============================================
+// BUTTONS
+// ==============================================
+$btn-primary:          $color-black;
+$btn-primary-hover:    $color-black;
+
+$btn-secondary:        $color-black;
+$btn-secondary-hover:  $color-gray-dark;
+
+// ==============================================
+// FORMS, INPUTS
+// ==============================================
+$input-placeholder:    #ABABAB;
+$input-background:     #F5F5F5;
+
+$alert-error:          red;
+$alert-success:        green;
+
+$color-disabled: #000;
+$color-disabled-border: #000;
+$color-error: #000;
+$color-error-bg: #000;
+$color-success: #000;
+$color-success-bg: #000;
+
+
+// ==============================================
+// FONTS
+// ==============================================
+// WEIGHTS
+$font-weight-thin: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// FAMILIES
+$sans: "HelveticaNeue", "Helvetica Neue", sans-serif;
+$sans-serif: sans-serif;
+
+// ==============================================
+// Z-INDEXS
+// ==============================================
+$z-index-back:   100;
+$z-index-middle: 200;
+$z-index-front:  300;
+
+

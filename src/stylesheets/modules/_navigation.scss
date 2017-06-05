@@ -1,0 +1,22 @@
+// _nav.scss
+
+// ---------------------------------
+// Navigation
+// ---------------------------------
+.navigation {
+  @include clearfix();
+
+  ul {
+    @include clearfix();
+
+    li {
+      display: inline-block;
+      float: left;
+      margin-right: 1rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

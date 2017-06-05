@@ -1,0 +1,128 @@
+// forms.scss
+
+// ============================================================================
+// Components: Forms
+// ============================================================================
+
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+select,
+textarea,
+.field {
+  background: $input-background;
+  border-radius: 2px;
+  @include fontSize(18px);
+  color: $color-black;
+  letter-spacing: 0;
+  height: 53px;
+  line-height: 54px;
+  display: block;
+  padding: 0 12px;
+  vertical-align: middle;
+  box-shadow: none;
+  border: 1px solid $input-background;
+  width: 100%;
+
+  &:focus,
+  &:active {
+    outline: none;
+    border-color: $color-black;
+    background: $color-white;
+    border: 1px solid $border-color;
+  }
+
+  &.error,
+  &.is-invalid {
+    color: $alert-error;
+    border-color: $alert-error;
+    background-color: $color-white;
+    outline-color: $alert-error;
+  }
+
+  &.success,
+  &.is-valid {
+    color: $alert-success;
+    border-color: $alert-success;
+    background-color: $color-white;
+    outline-color: $alert-success;
+  }
+
+  &[disabled],
+  &.is-disabled {
+    cursor: not-allowed;
+    border-color: $color-black;
+    opacity: 0.6;
+  }
+
+  &:-webkit-autofill {
+    background-color: $input-background;
+    -webkit-box-shadow: 0 0 0px 1000px $input-background inset;
+  }
+
+  &::-webkit-input-placeholder {
+     color: $input-placeholder;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+     color: $input-placeholder;
+  }
+
+  &::-moz-placeholder {  /* Firefox 19+ */
+     color: $input-placeholder;
+  }
+
+  &:-ms-input-placeholder {
+     color: $input-placeholder;
+  }
+}
+
+select {
+  color: $input-placeholder;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url( #{"{{'icon-arrow-down@2x.png' | asset_url }}"} );
+  background-repeat: no-repeat;
+  background-position: 95%;
+  background-size: 7px 4px;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+}
+
+textarea {
+  max-width: 100%;
+  min-height: 227px;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.errors {
+  ul {
+    list-style-type: none;
+    text-align: center;
+
+    li {
+      font-size: 14px;
+      color: #FF0000;
+      letter-spacing: 0;
+      line-height: 20px;
+      padding: 0.5rem 0 1.5rem;
+    }
+  }
+}

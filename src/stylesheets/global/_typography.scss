@@ -1,0 +1,152 @@
+// _typography.scss
+
+// @font-face {
+//   font-family: 'BasicSans';
+//   font-weight: 600;
+//   src: url(#{"{{ '328A24_0_0.eot' | asset_url }}"});
+//   src: url(#{"{{ '328A24_0_0.eot?#iefix' | asset_url }}"}) format('embedded-opentype'),
+//        url(#{"{{ '328A24_0_0.woff2' | asset_url }}"}) format('woff2'),
+//        url(#{"{{ '328A24_0_0.woff' | asset_url }}"}) format('woff'),
+//        url(#{"{{ '328A24_0_0.ttf' | asset_url }}"}) format('truetype');
+// }
+
+body {
+  font-family: $sans;
+  color: $color-gray-medium;
+}
+
+a {
+  color: $text-color;
+
+  &:hover {
+    color: $color-black;
+  }
+}
+
+p {
+  @include fontSize(14px);
+  font-family: $sans;
+  font-weight: 300;
+  color: $color-gray-medium;
+  line-height: 27px;
+  margin: 0 0 1rem;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+
+  &.big {
+    @include fontSize(16px);
+    line-height: 24px;
+  }
+
+  &.quote {
+    @include fontSize(14px);
+    line-height: 22px;
+    font-style: italic;
+  }
+
+  &.caption {
+    @include fontSize(12px);
+    line-height: 1.8;
+  }
+
+  &.note {
+    @include fontSize(12px);
+    line-height: 20px;
+    color: $color-orange;
+  }
+
+  @media #{$medium-up} {
+    @include fontSize(16px);
+
+    &.big {
+      @include fontSize(22px);
+      line-height: 28px;
+    }
+
+    &.quote {
+      @include fontSize(22px);
+      line-height: 30px;
+    }
+
+    &.caption {
+      @include fontSize(14px);
+      line-height: 28px;
+    }
+
+    &.note {
+      @include fontSize(14px);
+      line-height: 20px;
+    }
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  font-family: $sans;
+  font-weight: 300;
+}
+
+h1 {
+  @include fontSize(34px);
+  line-height: 1;
+
+  @media #{$medium-up} {
+    @include fontSize(60px);
+  }
+}
+
+h2 {
+  @include fontSize(30px);
+  line-height: 30px;
+
+  @media #{$medium-up} {
+    @include fontSize(40px);
+    line-height: 46px;
+  }
+}
+
+h3 {
+  @include fontSize(24px);
+  line-height: 30px;
+
+  @media #{$medium-up} {
+    @include fontSize(34px);
+    line-height: 40px;
+  }
+}
+
+h4 {
+  @include fontSize(20px);
+  line-height: 24px;
+
+  @media #{$medium-up} {
+    @include fontSize(25px);
+    line-height: 30px;
+  }
+}
+
+h5 {
+  @include fontSize(12px);
+  line-height: 16px;
+  letter-spacing: 1px;
+}
+
+h6 {
+  @include fontSize(12px);
+  line-height: 28px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+
+  @media #{$medium-up} {
+    @include fontSize(14px);
+    line-height: 28px;
+  }
+
+  &.caption {
+    color: $color-gray-medium;
+  }
+}

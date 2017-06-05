@@ -1,0 +1,17 @@
+/*================ General layout styles ================*/
+body,
+html {
+  background-color: $color-white;
+}
+
+.page-width {
+  @include clearfix();
+  max-width: $max-width;
+  padding: 0 $gutter;
+  margin: 0 auto;
+}
+
+* {
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+}
