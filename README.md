@@ -6,7 +6,7 @@
 
 2. Clone this repo down to your local machine by using the following command in terminal...
 
-```git clone https://github.com/Bondfire/bf-static-starter.git```
+```git clone https://github.com/bradstemke/acorn```
 
 3. Navigate into the new folder it cloned down, this is the base of our project.
 
