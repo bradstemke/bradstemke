@@ -1,4 +1,6 @@
-# Static-Starter
+# Brad Stemke
+
+The ever changing personal website!
 
 ## Getting Started
 
@@ -6,7 +8,7 @@
 
 2. Clone this repo down to your local machine by using the following command in terminal...
 
-```git clone https://github.com/bradstemke/acorn```
+```git clone https://github.com/bradstemke/bradstemke```
 
 3. Navigate into the new folder it cloned down, this is the base of our project.
 
@@ -22,7 +24,7 @@
 
 6. Annnd you are good to go! SCSS and JS are now being compiled into the dist/assets folder for production use.
 
-If you run into any issues getting this running on your machine, ping Brad in Slack.
+If you run into any issues getting this running on your machine, you can send me an email.
 
 ## Using Grunt
 
