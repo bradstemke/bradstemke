@@ -266,4 +266,15 @@ $retina: "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)";
 //   }
 // }
 
+// ==============================================
+// Lazyload
+// ==============================================
+.lazyload,
+.lazyloading {
+  opacity: 0;
+}
 
+.lazyloaded {
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+}

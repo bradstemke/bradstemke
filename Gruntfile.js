@@ -3,7 +3,7 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
 
   var globalConfig = {
-    projectTitle: 'bf-static-starter',
+    projectTitle: 'bradstemke-dot-com',
     path: '/Users/bradstemke/Sites',
     assets: 'assets/',
     dev: 'src/',
@@ -14,31 +14,6 @@ module.exports = function(grunt) {
   grunt.initConfig({
     globalConfig: globalConfig,
     pkg: grunt.file.readJSON('package.json'),
-
-    babel: {
-        options: {
-            "sourceMap": true
-        },
-        dist: {
-            files: [{
-                "expand": true,
-                "cwd": "src/js",
-                "src": ["**/*.jsx"],
-                "dest": "src/js-compiled/",
-                "ext": "-compiled.js"
-            }]
-        }
-    },
-    uglify: {
-        all_src : {
-            options : {
-              sourceMap : true,
-              sourceMapName : 'src/build/sourceMap.map'
-            },
-            src : 'src/js-compiled/**/*-compiled.js',
-            dest : 'src/build/all.min.js'
-        }
-    },
 
     watch: {
       sass: {
@@ -66,11 +41,11 @@ module.exports = function(grunt) {
           style: 'expanded',
           banner: '/* <%= pkg.title || pkg.name %> - <%= grunt.template.today(\"mm-dd-yyyy\") %> - Copyright <%= grunt.template.today(\"yyyy\") %>; */',
         },
-        files: { '<%= globalConfig.dist %>/<%= globalConfig.assets %>/stylesheets/style.css' : '<%= globalConfig.dev %>/stylesheets/style.scss' }
+        files: { '<%= globalConfig.dist %>/<%= globalConfig.assets %>/stylesheets/style.css' : '<%= globalConfig.dev %>stylesheets/style.scss' }
       },
       build: {
         options: { style: 'compressed' },
-        files: { '<%= globalConfig.dist %>/<%= globalConfig.assets %>/stylesheets/style.css' : '<%= globalConfig.dev %>/stylesheets/style.scss' }
+        files: { '<%= globalConfig.dist %>/<%= globalConfig.assets %>/stylesheets/style.css' : '<%= globalConfig.dev %>stylesheets/style.scss' }
       }
     },
 
@@ -113,30 +88,34 @@ module.exports = function(grunt) {
       server: {
         options: {
           port: 9001,
-          base: '<%= globalConfig.path %>/<%= globalConfig.projectTitle %>/',
+          base: '<%= globalConfig.path %>/<%= globalConfig.projectTitle %>/<%= globalConfig.dev %>',
           keepalive: true
         }
       }
     },
 
-    imagemin: {
-      build: {
-        options: { optimizationLevel: 3 },
-        files: [{
-          expand: true,
-          cwd: '<%= globalConfig.dev %>/assets/',
-          src: ['**/*.jpeg', '**/*.png', '**/*.jpg'],
-          dest: '<%= globalConfig.dist %>/assets/media/'
-        }]
-      }
-    },
+    // concat: {
+    //   plugins: {
+    //     src: '<%= globalConfig.dev %>/scripts/plugins/*.js',
+    //     dest: '<%= globalConfig.dist %>/assets/scripts/plugins.js'
+    //   }
+    // }
 
     concat: {
-      plugins: {
+      options: {
+        stripBanners: true,
+        banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
+          '<%= grunt.template.today("yyyy-mm-dd") %> */',
+      },
+      dist: {
         src: '<%= globalConfig.dev %>/scripts/plugins/*.js',
         dest: '<%= globalConfig.dist %>/assets/scripts/plugins.js'
-      }
-    }
+      },
+      dev: {
+        src: '<%= globalConfig.dev %>/scripts/plugins/*.js',
+        dest: '<%= globalConfig.dev %>/scripts/plugins.js'
+      },
+    },
   }); // END grunt.initConfig
 
   // Load the plugins
@@ -150,17 +129,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-replace');
-
-  grunt.loadNpmTasks('grunt-babel');
 
   // Build DIST folder
   grunt.registerTask('build', [
     'sass:build',
-    'concat:plugins',
-    'uglify:build_main',
-    'uglify:build_plugins',
-    'imagemin:build',
+    'concat:dist',
     'copy:build'
   ]);
 
@@ -169,8 +142,11 @@ module.exports = function(grunt) {
     'clean:build'
   ]);
 
-  grunt.registerTask('default', ['babel', 'uglify']);
-
+  grunt.registerTask('default', [
+    'copy:html',
+    'concat:dev',
+    'watch'
+  ]);
 
   // starts local server http://localhost:9001/src/index.html
   grunt.registerTask('server', [

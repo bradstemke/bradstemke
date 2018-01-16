@@ -3,17 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Index</title>
-    <meta name="description" content="Description">
+    <title>Brad Stemke</title>
+    <meta name="description" content="A personal site">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no" />
 
-    <!-- DELETE FOR PRODUCTION -->
-    <meta name="robots" content="noindex, nofollow">
-
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
-
     <link rel="stylesheet" href="assets/stylesheets/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans:400,600" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
@@ -22,12 +18,91 @@
 
   <body>
 
-    <div class="page-wrapper">
+    <div class="page__wrapper">
+      <div class="page__wrapper-inner">
+        <header class="page__section page__section-intro">
+          <h1>Hi, I'm Brad Stemke</h1>
+          <h4>I am a web developer specializing in front-end technologies and languages. I am a team player who writes clean efficient code while striving to stay in tune with best practices.</h4>
+          <h4>My free time is usually spent out at an estate sale, having a burger, spending time with good friends, or driving somewhere new to explore. Those moments are often documented with my iPhone & Fuji Disposable cameras.</h4>
+        </header> <!-- header -->
 
-        <div class="page-section">
-          <h1>Hello World</h1>
-        </div> <!-- page-section -->
+        <section class="page__section page__section-recent-work">
+          <h3>Available for hire!</h3>
+          <p>I am currently looking to join a new team.<br />Do you value continued learning?<br />Does your team collaborate and work with designers to bring the clients vision to life in a user-friendly, responsive, and dynamic way?<br />Do best practices matter to you?<br />Do naming conventions for your CSS artitecture interest you?</p>
+          <p class="contact-line">If so, let's get in touch!<br /><a href="mailto:hello@bradstemke.com">hello@bradstemke.com</a><span class="icon-outer"><span class="icon-arrow">&larr;</span></span></p>
 
+          <h3>Recent Work</h3>
+          <ul class="list__recent-work">
+            <li><a href="https://www.statebags.com/" target="_blank">State Bags</a></li>
+            <li><a href="https://no6store.com/" target="_blank">No.6 Store</a></li>
+            <li><a href="https://figue.com/" target="_blank">Figue</a></li>
+            <li><a href="https://mishanonoo.com/" target="_blank">Misha Nonoo</a></li>
+            <li><a href="https://www.managedbyq.com/" target="_blank">Managed By Q</a></li>
+            <li><a href="https://www.solorugs.com/" target="_blank">Solo Rugs</a></li>
+            <li><a href="https://skinclinical.com/" target="_blank">Skin Clinical</a></li>
+          </ul>
+        </section> <!-- page__section-collections -->
+
+        <section class="page__section page__section-skills">
+          <div class="section-skills__item">
+            <h4 class="small-headline">Programming Languages</h4>
+            <h5>HTML5</h5>
+            <h5>CSS3/Sass - (BEM)</h5>
+            <h5>Javascript/jQuery</h5>
+            <h5>Liquid</h5>
+            <h5>PHP</h5>
+          </div>
+
+          <div class="section-skills__item">
+            <h4 class="small-headline">Hard Skills</h4>
+            <h5>Sketch</h5>
+            <h5>Illustrator</h5>
+            <h5>Photoshop</h5>
+            <h5>Grunt</h5>
+            <h5>Node.js/NPM</h5>
+            <h5>Git/Github</h5>
+            <h5>Wordpress</h5>
+            <h5>Shopify</h5>
+            <h5>Crossbrowser Testing</h5>
+            <h5>Responsive Design</h5>
+            <h5>Chrome DevTools</h5>
+          </div> <!-- section-skills__item -->
+
+          <div class="section-skills__item">
+            <h4 class="small-headline">Soft Skills</h4>
+            <h5>Creative</h5>
+            <h5>Team Player</h5>
+            <h5>Fast Learner</h5>
+            <h5>Detail-Oriented</h5>
+            <h5>Great Work Ethic</h5>
+            <h5>Multitasker</h5>
+            <h5>Proactive</h5>
+            <h5>Positive Thinker</h5>
+          </div> <!-- section-skills__item -->
+        </section> <!-- page__section-skills -->
+
+        <section class="page__section page__section-collections">
+          <div class="section__content">
+            <h4 class="small-headline">I'm an archivist of found audio, field recordings, 35mm slides, and other everyday things.</h4>
+            <p>I am curating a collection of some of the things I have gathered, and it will have a home here soon.</p>
+          </div>
+
+          <div class="section__media section__media-hobby section__media--mobile lazyload" data-bg="assets/media/hobby-mobile.jpg"></div>
+          <div class="section__media section__media-hobby section__media--desktop lazyload" data-bg="assets/media/hobby.jpg"></div>
+
+          <div class="hobby-slide lazyload" data-bg="assets/media/hobby-slide-2.jpg"></div>
+        </section> <!-- page__section-collections -->
+
+        <footer>
+          <div class="footer__links">
+            <a href="https://github.com/bradstemke" target="_blank"><h5>Github</h5></a>
+            <a href="http://instagram.com/bradstemke" target="_blank"><h5>Instagram</h5></a>
+            <a href="https://twitter.com/bradstemke" target="_blank"><h5>Twitter</h5></a>
+          </div>
+
+          <h5 class="copyright">&copy; Brad Stemke 2018</h5>
+        </footer> <!-- footer -->
+      </div> <!-- page-wrapper-inner -->
     </div> <!-- page-wrapper -->
 
     <script src="assets/scripts/plugins.js"></script>

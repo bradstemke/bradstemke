@@ -11,8 +11,8 @@
 // }
 
 body {
-  font-family: $sans;
-  color: $color-gray-medium;
+  font-family: $serif;
+  color: $color-black;
 }
 
 a {
@@ -25,10 +25,10 @@ a {
 
 p {
   @include fontSize(14px);
-  font-family: $sans;
-  font-weight: 300;
-  color: $color-gray-medium;
-  line-height: 27px;
+  line-height: 20px;
+  font-family: $serif;
+  font-weight: 400;
+  color: $text-color;
   margin: 0 0 1rem;
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
@@ -85,8 +85,9 @@ p {
 h1, h2, h3, h4, h5, h6 {
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
-  font-family: $sans;
-  font-weight: 300;
+  font-family: $sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
 
 h1 {
@@ -109,37 +110,39 @@ h2 {
 }
 
 h3 {
-  @include fontSize(24px);
+  @include fontSize(22px);
   line-height: 30px;
 
   @media #{$medium-up} {
-    @include fontSize(34px);
+    @include fontSize(30px);
     line-height: 40px;
   }
 }
 
 h4 {
-  @include fontSize(20px);
-  line-height: 24px;
+  @include fontSize(18px);
+  line-height: 20px;
 
   @media #{$medium-up} {
-    @include fontSize(25px);
-    line-height: 30px;
+    @include fontSize(22px);
+    line-height: 34px;
   }
 }
 
 h5 {
-  @include fontSize(12px);
-  line-height: 16px;
-  letter-spacing: 1px;
+  @include fontSize(14px);
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 h6 {
   @include fontSize(12px);
-  line-height: 28px;
+  line-height: 20px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-weight: 600;
+  font-weight: 700;
 
   @media #{$medium-up} {
     @include fontSize(14px);

@@ -10,7 +10,7 @@ $max-width: 1200px;
 // COLORS
 // ==============================================
 $color-white:          #FFFFFF;
-$color-black:          #000000;
+$color-black:          #111111;
 $color-orange:         #EE5038;
 $color-orange-dark:    #D83621;
 $color-gray:           #DCDBDA;
@@ -20,6 +20,11 @@ $color-gray-light:     #DEDEDE;
 $color-green:          #069F59;
 $color-blue:           #1955b9;
 
+$color-yellow:         rgba(255,205,54,0.6);
+// $color-yellow:         #FFCD36;
+// $color-yellow:         #FFCC11;
+$color-tan:            #F8F7F3;
+
 $color-primary:        $color-orange;
 
 
@@ -28,7 +33,7 @@ $border-color:         $color-gray-light;
 // ==============================================
 // TEXT COLORS
 // ==============================================
-$text-color:           $color-gray-medium;
+$text-color:           $color-black;
 
 // ==============================================
 // BACKGROUND COLORS
@@ -82,8 +87,9 @@ $font-weight-medium: 500;
 $font-weight-bold: 700;
 
 // FAMILIES
-$sans: "HelveticaNeue", "Helvetica Neue", sans-serif;
-$sans-serif: sans-serif;
+$serif: 'Lora', 'Times New Roman', sans-serif;
+$sans-serif: 'Open Sans', "HelveticaNeue", "Helvetica Neue", sans-serif;
+
 
 // ==============================================
 // Z-INDEXS

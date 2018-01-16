@@ -1,7 +1,55 @@
 // _footer.scss
 
-.footer {
+footer {
   @include clearfix();
   @include grid-container();
-  padding: 2rem 1rem;
+  padding: 2rem 0 4rem;
+
+  @media #{$small-only} {
+    text-align: center;
+  }
+}
+
+.copyright {
+  text-align: center;
+
+  @media #{$medium-up} {
+    text-align: right;
+  }
+}
+
+.footer__links {
+  display: inline-block;
+  text-align: center;
+  padding-bottom: 2rem;
+
+  @media #{$medium-up} {
+    display: inline-block;
+    float: left;
+    text-align: left;
+    padding-bottom: 0;
+  }
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+    margin-right: $gutter;
+
+    &:focus,
+    &:hover {
+      -webkit-transform: rotateZ(6deg);
+      -ms-transform: rotateZ(6deg);
+      transform: rotateZ(6deg);
+
+      &:nth-child(even) {
+        -webkit-transform: rotateZ(-6deg);
+        -ms-transform: rotateZ(-6deg);
+        transform: rotateZ(-6deg);
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }

@@ -4,11 +4,20 @@ html {
   background-color: $color-white;
 }
 
-.page-width {
+.page__wrapper {
   @include clearfix();
+  margin: $gutter/2;
+  background: $color-tan;
+
+  @media #{$medium-up} {
+    margin: $gutter;
+  }
+}
+
+.page__wrapper-inner {
   max-width: $max-width;
-  padding: 0 $gutter;
   margin: 0 auto;
+  padding: 0 $gutter;
 }
 
 * {
