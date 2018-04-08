@@ -1,0 +1,26 @@
+/*================ General layout styles ================*/
+body,
+html {
+  background-color: $color-white;
+}
+
+.page__wrapper {
+  @include clearfix();
+  margin: $gutter/2;
+  background: $color-tan;
+
+  @media #{$medium-up} {
+    margin: $gutter;
+  }
+}
+
+.page__wrapper-inner {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $gutter;
+}
+
+* {
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+}

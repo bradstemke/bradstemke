@@ -1,0 +1,285 @@
+// style-guide.scss
+
+////////////////////////////////////////////////////////
+// Styleguide
+////////////////////////////////////////////////////////
+
+.page-section {
+  margin-bottom: 4rem;
+
+  .page-section-title {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid $color-black;
+  }
+}
+
+.ui-color-block {
+  width: 50%;
+  display: inline-block;
+  float: left;
+  padding-bottom: 2rem;
+
+  @media #{$large-up} {
+    width: 20%;
+  }
+
+  .color-sample {
+    width: 100%;
+    height: 150px;
+    display: block;
+    margin-bottom: 1rem;
+
+    &.primary {
+      background: $color-primary;
+    }
+
+    &.primary-dark {
+      background: $color-primary-dark;
+    }
+
+    &.primary-darkest {
+      background: $color-primary-darkest;
+    }
+
+    &.primary-light {
+      background: $color-primary-light;
+    }
+
+    &.primary-lightest {
+      background: $color-primary-lightest;
+    }
+  }
+
+  h4 {
+    padding-bottom: 0.5rem;
+  }
+}
+
+.ui-typography {
+  .heading-sample {
+    padding-bottom: 1rem;
+  }
+}
+
+.ui-icons {
+  .icon {
+    display: inline-block;
+    margin-right: 2rem;
+    float: left;
+  }
+}
+
+.ui-fonts {
+  .font-title {
+    padding-bottom: 0.25rem;
+
+    &.bold {
+      h4 {
+        font-weight: 700;
+      }
+    }
+  }
+
+  .font-example {
+    padding-bottom: 1.5rem;
+
+    &.bold {
+      p {
+        font-weight: 700;
+      }
+    }
+  }
+
+  &.secondary {
+    font-family: $serif;
+  }
+}
+
+.ui-buttons {
+  margin-bottom: 2rem;
+
+  .button-block {
+    padding-bottom: 2rem;
+
+    h4 {
+      padding-bottom: 1rem;
+    }
+
+    a {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .btn-primary {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &:hover,
+    &:focus {
+      background-color: $color-primary-dark;
+    }
+
+    &:active {
+      background-color: $color-primary-darkest;
+    } // end active
+
+    &.active {
+      background-color: $color-primary-darkest;
+      color: $color-white;
+
+      &:hover,
+      &:focus {
+        background-color: $color-primary-darkest;
+      } // end hover
+
+      &:active {
+        background-color: $color-primary-darkest;
+      } // end active
+    } // active
+
+    &.hover {
+      background-color: $color-primary-dark;
+      color: $color-white;
+
+      &:hover,
+      &:focus {
+        background-color: $color-primary-dark;
+      } // end hover
+
+      &:active {
+        background-color: $color-primary-dark;
+      } // end active
+    } // active
+
+    &.disabled {
+      background: $color-gray-disabled;
+      cursor: default;
+    }
+  } // end button
+
+  .btn-primary-outline {
+
+    &.active {
+      background-color: $color-primary-darkest;
+      color: $color-white !important;
+      outline: 1px solid $color-primary-darkest;
+
+      &:hover,
+      &:focus {
+        background-color: $color-primary-darkest;
+        color: $color-white !important;
+        outline: 1px solid $color-primary-darkest;
+      } // end hover
+    } // active
+
+    &.hover {
+      background-color: $color-black;
+      color: $color-white !important;
+      outline: 1px solid $color-black;
+
+      &:hover,
+      &:focus {
+        background-color: $color-black;
+        color: $color-white !important;
+        outline: 1px solid $color-black;
+      } // end hover
+
+      &:active {
+        background-color: $color-primary-darkest;
+        color: $color-white !important;
+        outline: 1px solid $color-black;
+      } // end active
+    } // active
+
+    &.disabled {
+      background: $color-gray-disabled;
+      cursor: default;
+    }
+  } // end button
+
+  .btn-secondary {
+    &.active {
+      border-color: $color-primary-darkest;
+      background-color: $color-primary-darkest;
+      color: $color-white !important;
+
+      &:hover,
+      &:focus {
+        border-color: $color-primary-darkest;
+        background-color: $color-primary-darkest;
+      } // end hover
+
+      &:active {
+        border-color: $color-primary-darkest;
+        background-color: $color-primary-darkest;
+      } // end active
+    } // active
+
+    &.hover {
+      background-color: $color-primary;
+      color: $color-white !important;
+
+      &:hover,
+      &:focus {
+        background-color: $color-primary;
+      } // end hover
+
+      &:active {
+        background-color: $color-primary;
+      } // end active
+    } // active
+  } // end button
+}
+
+.ui-inputs {
+  @include outer-container();
+  margin-bottom: 2rem;
+
+  .input-example {
+    @include span-columns(6);
+    @include omega(2n);
+    margin-bottom: 2rem;
+
+    @media #{$medium-up} {
+      @include omega-reset(2n);
+      @include span-columns(3);
+      @include omega(4n);
+    }
+  }
+
+  input {
+    margin-top: 0.25rem;
+  }
+
+  label {
+    &.active {
+      input,
+      select {
+        border-color: $color-form-border-active;
+        outline: none;
+      }
+    }
+
+    &.error {
+      input,
+      select {
+        border-color: $color-form-border-error;
+        outline: none;
+      }
+    }
+
+    &.success {
+      input,
+      select {
+        border-color: $color-form-border-success;
+        outline: none;
+      }
+    }
+  }
+}
+
+.ui-checkbox {
+  .checkbox {
+    margin-bottom: 1rem;
+  }
+}

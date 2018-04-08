@@ -1,0 +1,342 @@
+// home.scss
+
+// ==================================
+// Home: Global
+// ==================================
+.page__section {
+  margin-bottom: $gutter*4;
+  padding-bottom: $gutter*4;
+
+  .small-headline {
+    margin-bottom: $gutter/2;
+
+    @media #{$medium-up} {
+      margin-bottom: $gutter;
+    }
+  }
+
+  h3 {
+    margin-bottom: $gutter/2;
+
+    @media #{$medium-up} {
+      margin-bottom: $gutter;
+    }
+  }
+}
+
+// ==================================
+// Header
+// ==================================
+header {
+  @include clearfix();
+  width: 100%;
+  display: block;
+  padding-top: 3rem;
+  border-bottom: 1px solid $color-black;
+
+  @media #{$medium-up} {
+    padding-top: 10rem;
+  }
+}
+
+.page__section-intro {
+  opacity: 0;
+  position: relative;
+  top: $gutter;
+  transition: opacity 0.6s ease-in, top 0.6s ease-in;
+
+  h1 {
+    margin-bottom: $gutter;
+
+    @media #{$medium-up} {
+      margin-bottom: $gutter*2;
+    }
+  }
+
+  h4 {
+    margin-bottom: $gutter;
+    font-family: $serif;
+    @include fontSize(16px);
+
+    @media #{$small-only} {
+      padding-right: 2rem;
+    }
+
+    @media #{$medium-up} {
+      max-width: 48rem;
+      @include fontSize(22px);
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+body.showtime {
+  .page__section-intro {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+// ==================================
+// Recent Work
+// ==================================
+.page__section-recent-work {
+  margin-bottom: 0;
+
+  h3:not(:first-child) {
+    padding-top: $gutter*3;
+  }
+
+  @media #{$small-only} {
+    padding-right: 1rem;
+  }
+
+  p {
+    max-width: 37rem;
+  }
+}
+
+.contact-line {
+  padding-top: 1rem;
+  position: relative;
+}
+
+.icon-outer {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 18px;
+}
+
+.icon-arrow {
+  padding-left: 1rem;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 2px;
+  animation: animate 1.6s infinite;
+}
+
+@keyframes animate {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 8px;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+.list__recent-work {
+
+  @media #{$medium-up} {
+    text-align: center;
+    max-width: 50rem;
+    margin: 0 auto;
+  }
+
+  li {
+    display: block;
+    padding: 1rem 0;
+
+    @media #{$medium-up} {
+      display: inline-block;
+      padding: 3rem;
+    }
+
+    a {
+      display: inline-block;
+      font-family: $sans-serif;
+      @include fontSize(18px);
+
+      @media #{$medium-up} {
+        @include fontSize(22px);
+      }
+    }
+
+    &:focus,
+    &:hover {
+      a {
+        -webkit-transform: rotateZ(6deg);
+        -ms-transform: rotateZ(6deg);
+        transform: rotateZ(6deg);
+      }
+
+      &:nth-child(even) {
+        a {
+          -webkit-transform: rotateZ(-6deg);
+          -ms-transform: rotateZ(-6deg);
+          transform: rotateZ(-6deg);
+        }
+      }
+    }
+  }
+}
+
+// ==================================
+// Skills
+// ==================================
+.page__section-skills {
+  display: block;
+  @include clearfix();
+  border: 4px solid $color-yellow;
+  padding: 2rem;
+
+  @media #{$medium-up} {
+    padding: 3rem;
+  }
+}
+
+.section-skills__item {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: $gutter*2;
+
+  @media #{$small-only} {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @media #{$medium-up} {
+    width: 33.33%;
+    display: inline-block;
+    float: left;
+  }
+
+  h5 {
+    @include fontSize(12px);
+
+    @media #{$medium-up} {
+      @include fontSize(14px);
+    }
+  }
+}
+
+// ==================================
+// Collections
+// ==================================
+.page__section-collections {
+  @include clearfix();
+  padding: 0;
+  position: relative;
+  margin-bottom: 5rem;
+
+  @media #{$medium-up} {
+    margin-bottom: 10rem;
+  }
+
+  h3:not(:first-child) {
+    padding-top: $gutter;
+  }
+
+  @media #{$large-up} {
+    margin-bottom: 6rem;
+  }
+
+  .section__content {
+    display: inline-block;
+    border-left: 4px solid $color-black;
+    padding-left: $gutter;
+    margin-bottom: $gutter*2;
+
+    @media #{$medium-up} {
+      z-index: 10;
+      position: absolute;
+      top: 1rem;
+      max-width: 34rem;
+      margin: 0;
+    }
+
+    @media #{$large-up} {
+      top: 6rem;
+    }
+
+    p {
+      max-width: 17rem;
+
+      @media #{$medium-up} {
+        max-width: 25rem;
+      }
+    }
+  }
+
+  .hobby-slide {
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    width: 200px;
+    height: 200px;
+    -webkit-transform: rotate(-8deg);
+    -moz-transform: rotate(-8deg);
+    -ms-transform: rotate(-8deg);
+    -o-transform: rotate(-8deg);
+    transform: rotate(-8deg);
+
+    @media #{$small-only} {
+      margin: 0 auto;
+    }
+
+    &:before {
+      display: block;
+      content: "";
+      width: 100%;
+      padding-top: 100%;
+    }
+
+    @media #{$medium-only} {
+      right: 61%;
+    }
+
+    @media #{$medium-up} {
+      bottom: -5rem;
+      display: block;
+      position: absolute;
+    }
+
+    @media #{$large-up} {
+      bottom: -1rem;
+      left: 12rem;
+      width: 220px;
+      height: 220px;
+    }
+  }
+
+  .section__media {
+    width: 100%;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    @include aspect-ratio(500, 500);
+
+    @media #{$medium-up} {
+      width: 50%;
+      float: right;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+    }
+
+    &--mobile {
+      display: block;
+
+      @media #{$medium-up} {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+
+      @media #{$medium-up} {
+        display: inline-block;
+      }
+    }
+  }
+}
+

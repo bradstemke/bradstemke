@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 
   var globalConfig = {
     projectTitle: 'bradstemke-dot-com',
-    path: '/Users/bradstemke/Sites',
+    path: 'Applications/MAMP/htdocs',
     assets: 'assets/',
     dev: 'src/',
     dist: 'dist/'
@@ -17,12 +17,12 @@ module.exports = function(grunt) {
 
     watch: {
       sass: {
-        files: '<%= globalConfig.dev %>/stylesheets/**/**/*.scss',
+        files: '<%= globalConfig.dev %>/<%= globalConfig.assets %>stylesheets/**/**/*.scss',
         tasks: 'sass:dev'
       },
 
       scripts: {
-        files: '<%= globalConfig.dev %>/scripts/**',
+        files: '<%= globalConfig.dev %>/assets/scripts/**',
         tasks: ['copy:js_plugins', 'copy:js_main'],
         options: {
           interrupt: true,
@@ -41,11 +41,11 @@ module.exports = function(grunt) {
           style: 'expanded',
           banner: '/* <%= pkg.title || pkg.name %> - <%= grunt.template.today(\"mm-dd-yyyy\") %> - Copyright <%= grunt.template.today(\"yyyy\") %>; */',
         },
-        files: { '<%= globalConfig.dist %>/<%= globalConfig.assets %>/stylesheets/style.css' : '<%= globalConfig.dev %>stylesheets/style.scss' }
+        files: { '<%= globalConfig.dist %>/<%= globalConfig.assets %>stylesheets/style.css' : '<%= globalConfig.dev %>/<%= globalConfig.assets %>stylesheets/style.scss' }
       },
       build: {
         options: { style: 'compressed' },
-        files: { '<%= globalConfig.dist %>/<%= globalConfig.assets %>/stylesheets/style.css' : '<%= globalConfig.dev %>stylesheets/style.scss' }
+        files: { '<%= globalConfig.dist %>/<%= globalConfig.assets %>stylesheets/style.css' : '<%= globalConfig.dev %>/<%= globalConfig.assets %>stylesheets/style.scss' }
       }
     },
 
@@ -54,13 +54,13 @@ module.exports = function(grunt) {
       js_plugins: {
         expand: true,
         src: '**',
-        cwd: '<%= globalConfig.dev %>/scripts/plugins',
+        cwd: '<%= globalConfig.dev %>/<%= globalConfig.assets %>scripts/plugins',
         dest: '<%= globalConfig.dist %>/assets/scripts/plugins',
       },
       js_main: {
         expand: true,
         src: 'scripts.js',
-        cwd: '<%= globalConfig.dev %>/scripts',
+        cwd: '<%= globalConfig.dev %>/<%= globalConfig.assets %>scripts',
         dest: '<%= globalConfig.dist %>/assets/scripts',
       },
       build: {
@@ -88,18 +88,22 @@ module.exports = function(grunt) {
       server: {
         options: {
           port: 9001,
-          base: '<%= globalConfig.path %>/<%= globalConfig.projectTitle %>/<%= globalConfig.dev %>',
+          base: '<%= globalConfig.path %>/<%= globalConfig.projectTitle %>/<%= globalConfig.dist %>',
           keepalive: true
         }
       }
     },
 
-    // concat: {
-    //   plugins: {
-    //     src: '<%= globalConfig.dev %>/scripts/plugins/*.js',
-    //     dest: '<%= globalConfig.dist %>/assets/scripts/plugins.js'
-    //   }
-    // }
+    uglify: {
+      build_scripts: {
+        src: '<%= globalConfig.dev %>/<%= globalConfig.assets %>scripts/scripts.js',
+        dest: '<%= globalConfig.dist %>/<%= globalConfig.assets %>scripts/scripts.min.js',
+      },
+      build_plugins: {
+        src: '<%= globalConfig.dev %>/<%= globalConfig.assets %>scripts/plugins/*.js',
+        dest: '<%= globalConfig.dist %>/<%= globalConfig.assets %>scripts/plugins.min.js'
+      }
+    },
 
     concat: {
       options: {
@@ -108,11 +112,11 @@ module.exports = function(grunt) {
           '<%= grunt.template.today("yyyy-mm-dd") %> */',
       },
       dist: {
-        src: '<%= globalConfig.dev %>/scripts/plugins/*.js',
+        src: '<%= globalConfig.dev %>/<%= globalConfig.assets %>scripts/plugins/*.js',
         dest: '<%= globalConfig.dist %>/assets/scripts/plugins.js'
       },
       dev: {
-        src: '<%= globalConfig.dev %>/scripts/plugins/*.js',
+        src: '<%= globalConfig.dev %>/<%= globalConfig.assets %>scripts/plugins/*.js',
         dest: '<%= globalConfig.dev %>/scripts/plugins.js'
       },
     },
@@ -134,6 +138,8 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'sass:build',
     'concat:dist',
+    'uglify:build_scripts',
+    'uglify:build_plugins',
     'copy:build'
   ]);
 

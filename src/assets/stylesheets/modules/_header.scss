@@ -1,0 +1,40 @@
+// _header.scss
+
+// ---------------------------------
+// Header
+// ---------------------------------
+.header {
+  width: 100%;
+  display: block;
+  @include clearfix();
+  padding: 0 1rem;
+  position: relative;
+
+  .header-left {
+    @media #{$medium-up} {
+      @include grid-column(4);
+    }
+  }
+
+  .header-center {
+    @media #{$medium-up} {
+      @include grid-column(4);
+    }
+  }
+
+  .header-right {
+    @media #{$medium-up} {
+      @include grid-column(4);
+    }
+  }
+}
+
+.header__logo--wrapper {
+  .header__logo {
+    text-align: center;
+  }
+}
+
+.header__search {
+  width: 300px;
+}
